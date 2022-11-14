@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="39d2054f-23b9-4417-93bd-d0eda471219d" >
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="c3942b03-078d-40ae-941e-3f46b4202ce5" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="b0b6f15d-952d-4937-b112-6dceed61af96" >
+		<http:request-connection host="localhost" port="8082" />
+	</http:request-config>
+	<flow name="experienceFlow1" doc:id="ecabbe86-9204-4e2c-a8d4-d61479f554a6" >
+		<http:listener doc:name="Listener" doc:id="e8560bee-f082-49b7-88aa-1ac755d00c15" config-ref="HTTP_Listener_config" path="/dhoni"/>
+		<http:request method="GET" doc:name="Request" doc:id="92d92ead-c9e4-4908-bc20-fe48599ecef7" config-ref="HTTP_Request_configuration" path="/NAGOOR"/>
+	</flow>
+</mule>
